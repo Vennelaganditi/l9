@@ -41,10 +41,10 @@ describe("Test case for database", () => {
     var res = await agent.get("/signup");
     var csrfToken = getCsrfToken(res);
     const response = await agent.post("/users").send({
-      firstName: "Dipu",
-      lastName: "rvl",
-      email: "dipu@gmail.com",
-      password: "dipu",
+      firstName: "vennela",
+      lastName: "ganditi",
+      email: "vennyganditi@gmail.com",
+      password: "vennela4",
       _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
@@ -61,7 +61,7 @@ describe("Test case for database", () => {
 
   test("Creates a todo", async () => {
     var agent = request.agent(server);
-    await login(agent, "dipu@gmail.com", "dipu");
+    await login(agent, "vennyganditi@gmail.com", "vennela4");
     var res = await agent.get("/todos");
     var csrfToken = getCsrfToken(res);
     const response = await agent.post("/todos").send({
@@ -75,7 +75,7 @@ describe("Test case for database", () => {
 
   test("Mark todo as a completed (updating todo)", async () => {
     var agent = request.agent(server);
-    await login(agent, "dipu@gmail.com", "dipu");
+    await login(agent, "vennyganditi@gmail.com", "vennela4");
     var res = await agent.get("/todos");
     var csrfToken = getCsrfToken(res);
     await agent.post("/todos").send({
@@ -103,7 +103,7 @@ describe("Test case for database", () => {
 
   test("Deletes a todo with the given ID if it exists and sends a boolean response", async () => {
     var agent = request.agent(server);
-    await login(agent, "dipu@gmail.com", "dipu");
+    await login(agent, "vennyganditi@gmail.com", "vennela4");
     var res = await agent.get("/todos");
     var csrfToken = getCsrfToken(res);
     await agent.post("/todos").send({
