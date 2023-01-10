@@ -68,10 +68,10 @@ app.post("/todos", async (request, response) => {
     return response.redirect("/");
   } catch (error) {
     console.log(error);
-    return response.status(422).json(error);
+    return response.redirect("/todos");
   }
 });
-//PUT https://mytodoapp.com/todos/123/markAscomplete
+
 app.put("/todos/:id", async (request, response) => {
   console.log("Mark Todo as completed:", request.params.id);
   const todo = await Todo.findByPk(request.params.id);
